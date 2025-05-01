@@ -3,7 +3,9 @@
 	import HexGetter from '$lib/utils/HexGetter';
 	import MapGenerator from '$lib/utils/MapGenerator';
 
-	const map = MapGenerator.generate();
+	const mapGenerator = new MapGenerator();
+	mapGenerator.generate();
+	const map = mapGenerator.getMap();
 
 	let container: HTMLDivElement;
 	let isDragging = false;
@@ -38,7 +40,6 @@
 
 		container.scrollLeft = scrollLeft - walkX;
 		container.scrollTop = scrollTop - walkY;
-		console.log(container.scrollLeft, container.scrollTop);
 	}
 </script>
 

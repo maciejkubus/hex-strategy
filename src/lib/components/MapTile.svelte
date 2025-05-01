@@ -24,7 +24,6 @@
 		styles += 'left: ' + render.x + 'px; ';
 		styles += 'z-index: ' + render.z + '; ';
 		styles += `background-image: url('${hex.data.resource}');`;
-		console.log(hex.data.resource);
 		return styles;
 	};
 
@@ -37,7 +36,12 @@
 </script>
 
 {#if loaded}
-	<div class="map-tile absolute inline-block bg-no-repeat" style={getStyles()}></div>
+	<div
+		class="map-tile absolute inline-block bg-no-repeat text-center leading-10 text-black"
+		style={getStyles()}
+	>
+		<!-- {hex.x}, {hex.y} -->
+	</div>
 {/if}
 
 <style>
