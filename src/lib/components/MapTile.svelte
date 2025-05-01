@@ -7,9 +7,9 @@
 	let loaded = false;
 
 	const render = {
-		width: 130,
-		height: 129,
-		offset: 64,
+		width: 70,
+		height: 70,
+		offset: 28,
 		x: 0,
 		y: 0,
 		z: 0,
@@ -29,8 +29,8 @@
 	};
 
 	onMount(() => {
-		render.x = (render.width + render.offset) * hex.x + (hex.y % 2 == 1 ? 96 : 0);
-		render.y = (render.height * hex.y) / 2.28;
+		render.x = (render.width + render.offset) * hex.x + (hex.y % 2 == 1 ? 49 : 0);
+		render.y = (render.height * hex.y) / 2.5;
 		render.z = hex.y;
 		loaded = true;
 	});
@@ -42,7 +42,7 @@
 
 <style>
 	.map-tile {
-		background-position: -64px -54px;
-		background-size: 256px;
+		background-position: -32px -27px;
+		background-size: 128px;
 	}
 </style>
