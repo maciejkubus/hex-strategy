@@ -12,9 +12,9 @@ export default class MapGenerator {
   private tiles: Tiles;
   private generated: boolean;
   private chances = {
-    startingPoints: 6,
+    startingPoints: 8,
     landGrowChance: 5,
-    landGrowIterations: 6,
+    landGrowIterations: 7,
     mountainGrowChange: 4,
     mountainStartingPoints: 12,
     farmGrowChange: 3,
@@ -22,7 +22,7 @@ export default class MapGenerator {
     farmStartingPoints: 4,
   }
 
-  constructor(size = 32) {
+  constructor(size = 64) {
     this.size = size;
     this.tiles = [];
     this.generated = false;
