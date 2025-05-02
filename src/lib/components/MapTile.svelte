@@ -37,10 +37,10 @@
 
 {#if loaded}
 	<div
-		class="map-tile absolute inline-block bg-no-repeat text-center leading-10 text-black"
+		class="map-tile absolute inline-block bg-no-repeat text-center text-xs leading-10 text-black transition-all duration-150 hover:opacity-90"
 		style={getStyles()}
 	>
-		<!-- {hex.x}, {hex.y} -->
+		#{hex.id}: {hex.neighbours.length}<br />
 	</div>
 {/if}
 

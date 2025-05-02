@@ -53,10 +53,12 @@
 	on:mousemove={onDrag}
 >
 	<div class="relative h-screen w-screen">
-		{#each map.tiles as row, index}
-			{#each row as tile}
-				<MapTile hex={tile}></MapTile>
+		<div>
+			{#each map.tiles as row, index}
+				{#each row as tile}
+					<MapTile hex={tile}></MapTile>
+				{/each}
 			{/each}
-		{/each}
+		</div>
 	</div>
 </div>

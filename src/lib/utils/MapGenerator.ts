@@ -37,6 +37,12 @@ export default class MapGenerator {
         id++;
       }
     }
+
+    for(const row of this.tiles) {
+      for(const tile of row) {
+        tile.neighbours = this.getNeighbours(tile.x, tile.y);
+      }
+    }
   }
 
   private tileExists(x: number, y: number) {
@@ -71,12 +77,12 @@ export default class MapGenerator {
       {x: 0, y: -2, type: 0},
       {x: 0, y: 2, type: 0},
     ]
-    const neighbours: Array<Position> = [];
+    const neighbours: Array<Hex> = [];
     for(const potential of potentials.filter(item => startY % 2 == item.type)) {
       const x = startX + potential.x;
       const y = startY + potential.y;
       if(this.tileExists(x, y))
-        neighbours.push({x, y});
+        neighbours.push(this.tiles[x][y]);
     }
     return neighbours;
   }
