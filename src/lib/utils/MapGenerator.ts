@@ -1,3 +1,4 @@
+import { BIOME } from "$lib/enums/biome.enum";
 import type HexData from "$lib/types/HexData.interface";
 import type { Position } from "$lib/types/Position.interface";
 import Hex from "./Hex";
@@ -122,6 +123,51 @@ export default class MapGenerator {
     }
   }
 
+  private assignBiomes() {
+    for(const row of this.tiles) {
+      for(const tile of row) {
+        switch(tile.data.name) {
+          case "Base (ocean)":
+            tile.biome = BIOME.WATER;
+            break;
+          case "Base (lush)":
+            tile.biome = BIOME.GRASSLANDS;
+            break;
+          case "Plains (farmland) 2":
+            tile.biome = BIOME.FARM;
+            break;
+          case "Plains (farmland) 1":
+            tile.biome = BIOME.FARM;
+          break;
+          case "Plains (farmland) 3":
+            tile.biome = BIOME.FARM;
+          break;
+          case "Hills (lush) 3":
+            tile.biome = BIOME.HILL;
+          break;
+          case "Forest, conifer (lush) 2":
+            tile.biome = BIOME.FOREST;
+          break;
+          case "Hills (lush) 1":
+            tile.biome = BIOME.HILL;
+          break;
+          case "Mountains, medium (rocky)":
+            tile.biome = BIOME.MOUNTAIN;
+          break;
+          case "Mountains, foothills (rocky)":
+            tile.biome = BIOME.MOUNTAIN;
+          break;
+          case "Forest, conifer (lush)":
+            tile.biome = BIOME.FOREST;
+          break;
+          default:
+            tile.biome = BIOME.NONE;
+          break;
+        }
+      }
+    }
+  }
+
   generate() {
     if(this.generated)
       throw new Error('Map already generated');
@@ -163,6 +209,8 @@ export default class MapGenerator {
       this.chances.mountainGrowChange,
       1,
     );
+
+    this.assignBiomes();
 
     this.generated = true;
   }
