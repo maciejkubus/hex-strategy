@@ -1,4 +1,5 @@
 export interface ResourcesStore {
+  population: number;
   money: number;
   wood: number;
   stone: number;

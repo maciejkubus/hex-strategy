@@ -2,6 +2,7 @@
 	import MapTile from '$lib/components/MapTile.svelte';
 	import HexGetter from '$lib/utils/HexGetter';
 	import MapGenerator from '$lib/utils/MapGenerator';
+	import { onMount } from 'svelte';
 
 	const mapGenerator = new MapGenerator();
 	mapGenerator.generate();
